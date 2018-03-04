@@ -55,6 +55,23 @@
 			    <div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
 
+				    <select  id="nama_fakultas" type="text" class="form-control" name="nama_fakultas" placeholder="Pangkat Golongan">
+				    	<?php 
+						$no = 1;
+						foreach($jurusan as $u){ 
+						?>
+				    		<option><?php echo $u->nama_fakultas ?></option>
+	    				
+				    		 <?php } ?>
+				    </select>
+
+			    </div>
+
+
+
+			    <div class="input-group">
+				    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+
 				    <select  id="golongan_pangkat" type="text" class="form-control" name="golongan_pangkat" placeholder="Pangkat Golongan">
 				    	
 				    		<option>IIB</option>
@@ -69,8 +86,50 @@
 
 			    <div class="input-group"> <!-- Date input -->
         			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        			<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+        			<input class="form-control" id="date" name="tmt_pangkat" placeholder="TMT Pangkat" type="text"/>
       			</div>
+
+      			<div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <input id="nama_jabatan" type="text" class="form-control" name="nama_jabatan" placeholder="Jabatan"/>
+			    </div>
+
+
+
+			    <div class="input-group"> <!-- Date input -->
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="date" name="tmt_jabatan" placeholder="TMT Jabatan" type="text"/>
+      			</div>
+
+
+      			<div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <input id="tmpt_didik" type="text" class="form-control" name="tmpt_didik" placeholder="Asal Perguruan Tinggi"/>
+			    </div>
+
+
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <input id="thn_lulus" type="text" class="form-control" name="thn_lulus" placeholder="Tahun Lulus"/>
+			    </div>
+
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <input id="ijazah" type="text" class="form-control" name="ijazah" placeholder="No Ijazah"/>
+			    </div>
+
+
+			    <div class="input-group"> <!-- Date input -->
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Tangggal Lahir" type="text"/>
+      			</div>
+
+
+			    <div class="input-group"> <!-- Date input -->
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="tmt_pensiun" name="tmt_pensiun" placeholder="TMT Pensiun" type="text"/>
+      			</div>
+
 
       			</br>
       			<div class="input-group">
@@ -116,15 +175,27 @@
 
 	<script>
     $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var date_input=$('input[name="tmt_pangkat"]'); //our date input has the name "date"
+      var tmt_jabatan=$('input[name="tmt_jabatan"]');
+      var tmt_pensiun=$('input[name="tmt_pensiun"]');
+      var tgl_lahir=$('input[name="tgl_lahir"]');
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
-        format: 'mm/dd/yyyy',
+        format: 'yyyy-mm-dd',
         container: container,
         todayHighlight: true,
         autoclose: true,
       };
       date_input.datepicker(options);
+      tmt_jabatan.datepicker(options);
+      tmt_pensiun.datepicker(options);
+      tgl_lahir.datepicker(options);
+
+
+
+
+
+
     })
 </script>
 </body>

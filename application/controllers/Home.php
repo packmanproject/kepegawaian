@@ -40,12 +40,15 @@ class Home extends CI_Controller {
 
 	function tambahdata()
 	{
-		$this->load->view('admin/v_inputpegawai');	
+		$data['jurusan']=$this->db->query("select id_fakultas, nama_fakultas from fakultas")->result();
+		$this->load->view('admin/v_inputpegawai',$data);	
 	}
 
 
 	function tambah_aksi()
 	{
+
+
 		$this->load->library('form_validation');
 		$this->load->model('m_data');
 		$this->form_validation->set_rules('nip', 'nip', 'trim|required|min_length[2]|xss_clean');
@@ -61,13 +64,33 @@ class Home extends CI_Controller {
 		$file_path="assets/images/".$_POST['nip'].".jpg";
 
 		$nama = $this->input->post('nama_lengkap');
+		$nama_fakultas = $this->input->post('nama_fakultas');
 		$golongan = $this->input->post('golongan_pangkat');
+		$tmt_pangkat= $this->input->post('tmt_pangkat');
+		$nama_jabatan= $this->input->post('nama_jabatan');
+		$tmt_jabatan= $this->input->post('tmt_jabatan');
+		$tmpt_didik= $this->input->post('tmpt_didik');
+		$thn_lulus= $this->input->post('thn_lulus');
+		$ijazah= $this->input->post('ijazah');
+		$tgl_lahir= $this->input->post('tgl_lahir');
+		$tmt_pensiun= $this->input->post('tmt_pensiun');
+
 		$image=$file_path;
 		
 		$data = array(
 			'nip' => $nip,
 			'nama_lengkap' => $nama,
+			'nama_fakultas'=>$nama_fakultas,
 			'golongan_pangkat' => $golongan,
+			'tmt_pangkat'=>$tmt_pangkat,
+			'nama_jabatan'=>$nama_jabatan,
+			'tmt_jabatan'=>$tmt_jabatan,
+			'tmpt_didik'=>$tmpt_didik,
+			'thn_lulus'=>$thn_lulus,
+			'ijazah'=>$ijazah,
+			'tgl_lahir'=>$tgl_lahir,
+			'tmt_pensiun'=>$tmt_pensiun,
+
 			'image' => $image
 		);
 
@@ -133,8 +156,12 @@ class Home extends CI_Controller {
 	function detaildata($nip)
 	{
 		// 		keluarga.nama_istri == NULL
-		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.image, keluarga.nama_istri From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.tmt_pangkat,biodata_pegawai.nama_jabatan, biodata_pegawai.tmt_jabatan,
+			biodata_pegawai.tmpt_didik,biodata_pegawai.thn_lulus,biodata_pegawai.ijazah,biodata_pegawai.tgl_lahir,
+			biodata_pegawai.tmt_pensiun,biodata_pegawai.image, 
+			keluarga.nama_istri,keluarga.jml_anak,keluarga.alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
 		//print_r ($data); 
+		//$data['user']=$this->db->query("SELECT * from biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
 		$this->load->view('admin/v_detailpegawai',$data);
 		
 	}
@@ -166,8 +193,10 @@ class Home extends CI_Controller {
 
 #===========================================================================
 	function tambahdatakeluarga($nip){
+
 	$where = array('nip' => $nip);
-	$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,nama_istri From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		#print_r($data['jurusan']);
+	$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,nama_istri, jml_anak,alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
 	//print_r($data['user']);
 	$this->load->view('admin/v_editpegawaikeluarga',$data);
 	}
@@ -176,7 +205,8 @@ class Home extends CI_Controller {
 	function updatedatakeluarga(){
 		$nip = $this->input->post('nip');
 		$nama_istri = $_POST['nama_istri'];
-
+		$jml_anak = $_POST['jml_anak'];
+		$alamat = $_POST['alamat'];
 
 		$check['nip']=$this->db->query("select nip from keluarga where nip=$nip")->num_rows();
 		//print_r($check);
@@ -184,14 +214,18 @@ class Home extends CI_Controller {
 		if($check['nip']==0){
 			$data = array(
 				'nip' => $nip,
-				'nama_istri' => $nama_istri
+				'nama_istri' => $nama_istri,
+				'jml_anak' => $jml_anak,
+				'alamat' => $alamat
 				);
 			$this->m_data->input_data($data,'keluarga');
 		}
 		else{
 			$data = array(
 				'nip' => $nip,
-				'nama_istri' => $nama_istri
+				'nama_istri' => $nama_istri,
+				'jml_anak' => $jml_anak,
+				'alamat' => $alamat
 				);
 		 
 			$where = array('nip' => $nip);

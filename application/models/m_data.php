@@ -19,7 +19,7 @@ class M_data extends CI_Model {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	function tampil_data(){
-		return $this->db->query('select nip,nama_lengkap,golongan_pangkat,image from biodata_pegawai');
+		return $this->db->query('select * from biodata_pegawai');
 	}
 
 	function jmlbaris(){
@@ -51,7 +51,8 @@ class M_data extends CI_Model {
 
 	function detail_data($nip, $table){
 		//$query=$this->db->query("select * from $table where nip=$nip");
-		$query=$this->db->query("SELECT keluarga.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat 
+		$query=$this->db->query("SELECT keluarga.nip, biodata_pegawai.nama_lengkap, 
+			biodata_pegawai.nama_jabatan,biodata_pegawai.golongan_pangkat 
 			keluarga.nama_istri From keluarga inner join biodata_pegawai on keluarga.nip=biodata_pegawai.nip
 			where keluarga.nip=$nip");
 		//$this->db->select("nip,nama_lengkap,golongan_pangkat")->from($table)->where($where);

@@ -58,8 +58,8 @@
 			<th>No</th>
 			<th>NIP</th>
 			<th>Nama</th>
-			<th>Golongan</th>
-			<th>Image</th>
+			<th>Jabatan</th>
+			<!--<th>Image</th>-->
 			<th>Action</th>
 		</tr>
     </thead>
@@ -71,8 +71,8 @@
 			<td><?php echo $no++ ?></td>
 			<td><?php echo $u->nip ?></td>
 			<td><?php echo $u->nama_lengkap ?></td>
-			<td><?php echo $u->golongan_pangkat ?></td>
-      <td><img src="<?php echo base_url($u->image);?>"  width=70px height=70px ></td>
+			<td><?php echo $u->nama_jabatan ?></td>
+      <!--<td><img src="<?php //echo base_url($u->image);?>"  <!--width=70px height=70px ></td>-->
       
 			<td>
 			      <?php echo anchor('home/editdata/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-sm"/>EDIT'); ?>

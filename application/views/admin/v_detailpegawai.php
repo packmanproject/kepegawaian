@@ -35,61 +35,7 @@
 	    </ul>
 	  </div>
 	</nav>
-	<!--<center><h1>BIODATA PEGAWAI</h1></center>-->
-	<!--<div class="container">
 	
-			<table class="table table-striped">
-				<tr>
-					
-					<th>NIP</th>
-					<th>Nama</th>
-					<th>Golongan</th>
-					<th>Nama Istri</th>
-					<th>Image</th>
-					
-
-					
-				</tr>
-				<?php 
-				$no = 1;
-				foreach($user as $u){ 
-				?>
-				<tr>
-					
-					<td><?php echo $u->nip ?></td>
-					<td><?php echo $u->nama_lengkap ?></td>
-					<td><?php echo $u->golongan_pangkat ?></td>
-					<td><?php echo $u->nama_istri ?></td>
-					<td><img src="<?php echo base_url($u->image);?>"  width=70px height=70px ></td>
-					
-				</tr>
-				<?php } ?>
-
-			</table>
-			
-				<center><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-primary"/>Tambah Biodata Keluarga'); 
-			?></center>
-
-	</div>
-
-	<div class="col-lg-3 col-lg-offset-4">
-		<?php 
-				$no = 1;
-				foreach($user as $u){ 
-				?>
-				
-					
-					NIP:<?php echo $u->nip ?></ul>
-					<ul><?php echo $u->nama_lengkap ?></ul>
-					<ul><?php echo $u->golongan_pangkat ?></ul>
-					<ul><?php echo $u->nama_istri ?></ul>
-					<ul><img src="<?php echo base_url($u->image);?>"  width=70px height=70px ></ul>
-					
-				
-				<?php } ?>
-				</li>
-	</div>-->
-
 
 
 
@@ -115,8 +61,8 @@
                     <input type="text" class="form-control" placeholder="<?php echo $u->nip ?>">
                     <label>Nama</label>
                     <input type="text" class="form-control" placeholder="<?php echo $u->nama_lengkap?>">
-                    <label>Golongan Pangkat</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $u->golongan_pangkat ?>">
+                    <label>Jabatan</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $u->nama_jabatan ?>">
                     <br>
                     <!--<a href="#" class="btn btn-success">Update Info</a>-->
                     <?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success"/>Update Data'); 
@@ -130,34 +76,31 @@
                         <h2>Biodata Pegawai : </h2>
                         <h4>Universitas Islam Negeri Imam Bonjol Padang</h4>
                         <p>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                             3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+                            Pegawai Universitas UIN Padang Diharapkan Memberikan Suri Tauladan Yang Baik Kepada Semua Pihak, Teladan Dalam Arti Kata Sebenarnya, Keteladanan Yang Didasari Oleh Hati Yang Ikhlas.
+                            Membuang Ego Pribadi Demi Terwujudnya Visi Dan Misi Universitas.  
                         </p>
                     </div>
-                    <!--
-                    <div >
-                        <a href="#" class="btn btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i>&nbsp; Facebook</a>
-                        <a href="#" class="btn btn-social btn-google">
-                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
-                        <a href="#" class="btn btn-social btn-twitter">
-                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-                        <a href="#" class="btn btn-social btn-linkedin">
-                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
-                    </div>
-                    -->
+     
                     <div class="form-group col-md-8">
-                        
+                        <h3> Data Diri</h3>
                         <table class="table table-striped">
 							<tr>
 								
 								<th>NIP</th>
 								<th>Nama</th>
+								<th>Tgl Lahir</th>
 								<th>Golongan</th>
-								<th>Nama Istri</th>
-								
+								<th>TMT Pangkat</th>
+								<th>Jabatan</th>
+								<th>TMT Jabatan</th>
+								<th>Asal Kampus/Universitas</th>
+								<th>Thn Lulus</th>
+								<th>No Ijazah</th>
+								<th>TMT Pensiun</th>
 								
 
+								
+							
 								
 							</tr>
 							<?php 
@@ -168,14 +111,50 @@
 								
 								<td><?php echo $u->nip ?></td>
 								<td><?php echo $u->nama_lengkap ?></td>
+								<td><?php echo $u->tgl_lahir ?></td>
 								<td><?php echo $u->golongan_pangkat ?></td>
-								<td><?php echo $u->nama_istri ?></td>
+								<td><?php echo $u->tmt_pangkat ?></td>
+								<td><?php echo $u->nama_jabatan ?></td>
+								<td><?php echo $u->tmt_jabatan ?></td>
+								<td><?php echo $u->tmpt_didik ?></td>
+								<td><?php echo $u->thn_lulus ?></td>
+								<td><?php echo $u->ijazah ?></td>
+								<td><?php echo $u->tmt_pensiun ?></td>
+								
 								
 								
 							</tr>
 							<?php } ?>
 
 						</table>
+
+
+						<h3> Data Keluarga</h3>
+
+						<table class="table table-striped">
+							<tr>
+								
+								<th>Suami/Istri</th>
+								<th>Jml Anak</th>
+								<th>Alamat</th>
+
+																
+							</tr>
+							<?php 
+							$no = 1;
+							foreach($user as $u){ 
+							?>
+							<tr>
+								
+								<td><?php echo $u->nama_istri ?></td>
+								<td><?php echo $u->jml_anak ?></td>
+								<td><?php echo $u->alamat ?></td>
+								
+							</tr>
+							<?php } ?>
+
+						</table>
+
                     </div>
                 </div>
             </div>

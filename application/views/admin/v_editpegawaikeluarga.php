@@ -54,6 +54,16 @@
 				<td><input type="text" name="nama_istri" value="<?php echo $u->nama_istri ?>"></td>
 			</tr>
 
+			<tr>
+				<td>Jumlah Anak</td>
+				<td><input type="text" name="jml_anak" value="<?php echo $u->jml_anak ?>"></td>
+			</tr>
+
+			<tr>
+				<td>Alamat</td>
+				<td><textarea name="alamat" value="<?php echo $u->alamat ?>" ></textarea></td>
+			</tr>
+
 
 			<tr>
 				<td></td>
