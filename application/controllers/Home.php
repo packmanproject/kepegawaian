@@ -64,7 +64,7 @@ class Home extends CI_Controller {
 		$file_path="assets/images/".$_POST['nip'].".jpg";
 
 		$nama = $this->input->post('nama_lengkap');
-		$nama_fakultas = $this->input->post('nama_fakultas');
+		//$nama_fakultas = $this->input->post('nama_fakultas');
 		$golongan = $this->input->post('golongan_pangkat');
 		$tmt_pangkat= $this->input->post('tmt_pangkat');
 		$nama_jabatan= $this->input->post('nama_jabatan');
@@ -80,7 +80,7 @@ class Home extends CI_Controller {
 		$data = array(
 			'nip' => $nip,
 			'nama_lengkap' => $nama,
-			'nama_fakultas'=>$nama_fakultas,
+			//'nama_fakultas'=>$nama_fakultas,
 			'golongan_pangkat' => $golongan,
 			'tmt_pangkat'=>$tmt_pangkat,
 			'nama_jabatan'=>$nama_jabatan,
@@ -240,5 +240,38 @@ class Home extends CI_Controller {
 	}
 
 
+	function view_detail_keluarga($nip){
+		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.tmt_pangkat,biodata_pegawai.nama_jabatan, biodata_pegawai.tmt_jabatan,
+			biodata_pegawai.tmpt_didik,biodata_pegawai.thn_lulus,biodata_pegawai.ijazah,biodata_pegawai.tgl_lahir,
+			biodata_pegawai.tmt_pensiun,biodata_pegawai.image, 
+			keluarga.nama_istri,keluarga.jml_anak,keluarga.alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		$this->load->view('admin/v_detail_keluarga',$data);
+
+	}
+
+	function view_detail_pendidikan($nip){
+		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.tmt_pangkat,biodata_pegawai.nama_jabatan, biodata_pegawai.tmt_jabatan,
+			biodata_pegawai.tmpt_didik,biodata_pegawai.thn_lulus,biodata_pegawai.ijazah,biodata_pegawai.tgl_lahir,
+			biodata_pegawai.tmt_pensiun,biodata_pegawai.image, 
+			keluarga.nama_istri,keluarga.jml_anak,keluarga.alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		$this->load->view('admin/v_detail_pendidikan',$data);
+	}
+
+	function view_detail_pekerjaan($nip){
+		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.tmt_pangkat,biodata_pegawai.nama_jabatan, biodata_pegawai.tmt_jabatan,
+			biodata_pegawai.tmpt_didik,biodata_pegawai.thn_lulus,biodata_pegawai.ijazah,biodata_pegawai.tgl_lahir,
+			biodata_pegawai.tmt_pensiun,biodata_pegawai.image, 
+			keluarga.nama_istri,keluarga.jml_anak,keluarga.alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		$this->load->view('admin/v_detail_pekerjaan',$data);
+	}
+
+
+	function view_detail_penelitian($nip){
+		$data['user']=$this->db->query("SELECT biodata_pegawai.nip, biodata_pegawai.nama_lengkap, biodata_pegawai.golongan_pangkat,biodata_pegawai.tmt_pangkat,biodata_pegawai.nama_jabatan, biodata_pegawai.tmt_jabatan,
+			biodata_pegawai.tmpt_didik,biodata_pegawai.thn_lulus,biodata_pegawai.ijazah,biodata_pegawai.tgl_lahir,
+			biodata_pegawai.tmt_pensiun,biodata_pegawai.image, 
+			keluarga.nama_istri,keluarga.jml_anak,keluarga.alamat From biodata_pegawai left join keluarga on biodata_pegawai.nip=keluarga.nip where biodata_pegawai.nip=$nip OR keluarga.nama_istri=NULL")->result();
+		$this->load->view('admin/v_detail_penelitian',$data);
+	}
 
 }

@@ -82,57 +82,9 @@
                     </div>
      
                     <div class="form-group col-md-8">
-                        <h3> DATA DIRI</h3>
-                        <table class="table table-striped">
-							<tr>
-								
-								<th>NIP</th>
-								<th>Nama</th>
-								<th>Tgl Lahir</th>
-								<th>Golongan</th>
-								<th>TMT Pangkat</th>
-								<th>Jabatan</th>
-								<th>TMT Jabatan</th>
-								<th>Asal Kampus/Universitas</th>
-								<th>Thn Lulus</th>
-								<th>No Ijazah</th>
-								<th>TMT Pensiun</th>
-								
-
-								
-							
-								
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nip ?></td>
-								<td><?php echo $u->nama_lengkap ?></td>
-								<td><?php echo $u->tgl_lahir ?></td>
-								<td><?php echo $u->golongan_pangkat ?></td>
-								<td><?php echo $u->tmt_pangkat ?></td>
-								<td><?php echo $u->nama_jabatan ?></td>
-								<td><?php echo $u->tmt_jabatan ?></td>
-								<td><?php echo $u->tmpt_didik ?></td>
-								<td><?php echo $u->thn_lulus ?></td>
-								<td><?php echo $u->ijazah ?></td>
-								<td><?php echo $u->tmt_pensiun ?></td>
-								
-								
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
-
+                        
 						<h3>KELUARGA </h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
-						?>
-						<?php echo anchor('home/view_detail_keluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Keluarga'); 
+						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Kembali'); 
 						?>
 						<h4> Data Suami/Istri</h4>
 						<table class="table table-striped">
@@ -189,25 +141,14 @@
 
 						</table>
 
-
-
-
-						
-
-
-
-
-						<h3>PENDIDIKAN</h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Pendidikan');?>
-						<?php echo anchor('home/view_detail_pendidikan/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Pendidikan'); 
-						?>
+						<h4> Data Orang Tua</h4>
 						<table class="table table-striped">
 							<tr>
 								
-								<th>Institusi</th>
-								<th>Jurusan</th>
-								<th>Tahun Masuk</th>
-								<th>Tahun Lulus</th>
+								<th>Nama Anak</th>
+								<th>Tempat Lahir</th>
+								<th>Tanggal Lahir</th>
+								<th>Pendidikan</th>
 
 																
 							</tr>
@@ -220,6 +161,7 @@
 								<td><?php echo $u->nama_istri ?></td>
 								<td><?php echo $u->jml_anak ?></td>
 								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $u->jml_anak ?></td>
 								
 							</tr>
 							<?php } ?>
@@ -227,16 +169,14 @@
 						</table>
 
 
-						<h3>PEKERJAAN</h4>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Pekerjaan');?>
-						<?php echo anchor('home/view_detail_pekerjaan/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Pekerjaan'); 
-						?>
+						<h4> Data Mertua</h4>
 						<table class="table table-striped">
 							<tr>
 								
-								<th>Nama Pekerjaan</th>
-								<th>Tanggal Mulai Bekerja</th>
-								<th>Tanggal Berhenti BeKerja</th>
+								<th>Nama Anak</th>
+								<th>Tempat Lahir</th>
+								<th>Tanggal Lahir</th>
+								<th>Pendidikan</th>
 
 																
 							</tr>
@@ -249,6 +189,7 @@
 								<td><?php echo $u->nama_istri ?></td>
 								<td><?php echo $u->jml_anak ?></td>
 								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $u->jml_anak ?></td>
 								
 							</tr>
 							<?php } ?>
@@ -256,17 +197,14 @@
 						</table>
 
 
-						<h3>PENELITIAN</h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Penelitian');?>
-						<?php echo anchor('home/view_detail_penelitian/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Penelitian'); 
-						?>
+						<h4> Data Saudara</h4>
 						<table class="table table-striped">
 							<tr>
 								
-								<th>Judul Peneltian</th>
-								<th>Jurnal Penerbit</th>
-								<th>Tanggal Terbit</th>
-								<th>Sponsor</th>
+								<th>Nama Anak</th>
+								<th>Tempat Lahir</th>
+								<th>Tanggal Lahir</th>
+								<th>Pendidikan</th>
 
 																
 							</tr>
@@ -279,20 +217,19 @@
 								<td><?php echo $u->nama_istri ?></td>
 								<td><?php echo $u->jml_anak ?></td>
 								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $u->jml_anak ?></td>
 								
 							</tr>
 							<?php } ?>
 
 						</table>
-
-
-                    </div>
+						</div>
                 </div>
             </div>
             <!-- ROW END -->
 
 
-        </section>
+    </section>
 
 </div>
 </body>
