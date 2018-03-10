@@ -63,6 +63,12 @@
                     <input type="text" class="form-control" placeholder="<?php echo $u->nama_lengkap?>">
                     <label>Jabatan</label>
                     <input type="text" class="form-control" placeholder="<?php echo $u->nama_jabatan ?>">
+
+                    <label>Golongan</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $u->golongan_pangkat ?>">
+
+                    
+
                     <br>
                     <!--<a href="#" class="btn btn-success">Update Info</a>-->
                     <?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success"/>Update Data'); 
@@ -86,18 +92,15 @@
                         <table class="table table-striped">
 							<tr>
 								
-								<th>NIP</th>
-								<th>Nama</th>
-								<th>Tgl Lahir</th>
-								<th>Golongan</th>
-								<th>TMT Pangkat</th>
-								<th>Jabatan</th>
-								<th>TMT Jabatan</th>
-								<th>Asal Kampus/Universitas</th>
-								<th>Thn Lulus</th>
-								<th>No Ijazah</th>
-								<th>TMT Pensiun</th>
 								
+								<th>Nama</th>
+								<th>Tempat lahir</th>
+								<th>Tgl Lahir</th>
+								<th>Email</th>
+								<th>Alamat</th>
+								<th>TMT Jabatan</th>
+								<th>TMT Pensiun</th>
+																
 
 								
 							
@@ -109,16 +112,13 @@
 							?>
 							<tr>
 								
-								<td><?php echo $u->nip ?></td>
+								
 								<td><?php echo $u->nama_lengkap ?></td>
+								<td><?php echo $u->tmpt_lahir ?></td>
 								<td><?php echo $u->tgl_lahir ?></td>
-								<td><?php echo $u->golongan_pangkat ?></td>
-								<td><?php echo $u->tmt_pangkat ?></td>
-								<td><?php echo $u->nama_jabatan ?></td>
+								<td><?php echo $u->email ?></td>
+								<td><?php echo $u->alamat ?></td>
 								<td><?php echo $u->tmt_jabatan ?></td>
-								<td><?php echo $u->tmpt_didik ?></td>
-								<td><?php echo $u->thn_lulus ?></td>
-								<td><?php echo $u->ijazah ?></td>
 								<td><?php echo $u->tmt_pensiun ?></td>
 								
 								
@@ -129,98 +129,35 @@
 						</table>
 
 
-						<h3>KELUARGA </h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
-						?>
-						<?php echo anchor('home/view_detail_keluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Keluarga'); 
-						?>
-						<h4> Data Suami/Istri</h4>
-						<table class="table table-striped">
-							<tr>
-								
-								<th>Suami/Istri</th>
-								<th>Tempat Lahir</th>
-								<th>Tanggal Lahir</th>
-								<th>Pekerjaan</th>
-
-																
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
-
-						<h4> Data Anak</h4>
-						<table class="table table-striped">
-							<tr>
-								
-								<th>Nama Anak</th>
-								<th>Tempat Lahir</th>
-								<th>Tanggal Lahir</th>
-								<th>Pendidikan</th>
-
-																
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
-
-
-
 						
 
 
 
 
 						<h3>PENDIDIKAN</h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Pendidikan');?>
+						<?php echo anchor('home/tambahdatapendidikan/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Tambah Data Pendidikan');?>
+						
 						<?php echo anchor('home/view_detail_pendidikan/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Pendidikan'); 
 						?>
 						<table class="table table-striped">
 							<tr>
-								
+								<th>Tingkat</th>
 								<th>Institusi</th>
 								<th>Jurusan</th>
-								<th>Tahun Masuk</th>
 								<th>Tahun Lulus</th>
-
-																
+								<th>No Ijazah</th>					
 							</tr>
 							<?php 
 							$no = 1;
-							foreach($user as $u){ 
+							foreach($pendidikan as $p){ 
 							?>
 							<tr>
 								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								
+								<td><?php echo $p->tingkat ?></td>
+								<td><?php echo $p->nama_perguruan ?></td>
+								<td><?php echo $p->jurusan ?></td>
+								<td><?php echo $p->thn_lulus ?></td>
+								<td><?php echo $p->no_ijazah ?></td>
 							</tr>
 							<?php } ?>
 
@@ -228,27 +165,34 @@
 
 
 						<h3>PEKERJAAN</h4>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Pekerjaan');?>
+						<?php echo anchor('home/tambahdatapekerjaan/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Tambah Data Pekerjaan');?>
 						<?php echo anchor('home/view_detail_pekerjaan/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Pekerjaan'); 
 						?>
 						<table class="table table-striped">
 							<tr>
-								
-								<th>Nama Pekerjaan</th>
-								<th>Tanggal Mulai Bekerja</th>
-								<th>Tanggal Berhenti BeKerja</th>
+								<th>Jabatan</th>
+								<th>Golongan Pangkat</th>
+								<th>Jenis SK</th>
+								<th>No Surat</th>
+								<th>Tanggal SK</th>
+								<th>TMT SK</th>
+								<th>TMT Jabatan</th>
 
 																
 							</tr>
 							<?php 
 							$no = 1;
-							foreach($user as $u){ 
+							foreach($pekerjaan as $kerja){ 
 							?>
 							<tr>
 								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $kerja->jabatan ?></td>
+								<td><?php echo $kerja->golongan_pangkat ?></td>
+								<td><?php echo $kerja->jenis_sk ?></td>
+								<td><?php echo $kerja->no_surat ?></td>
+								<td><?php echo $kerja->tgl_sk ?></td>
+								<td><?php echo $kerja->tmt_sk ?></td>
+								<td><?php echo $kerja->tmt_jabatan?></td>
 								
 							</tr>
 							<?php } ?>
@@ -257,16 +201,82 @@
 
 
 						<h3>PENELITIAN</h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Penelitian');?>
+						<?php echo anchor('home/tambahdatapenelitian/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Tambah Data Penelitian');?>
 						<?php echo anchor('home/view_detail_penelitian/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Data Penelitian'); 
 						?>
 						<table class="table table-striped">
 							<tr>
 								
-								<th>Judul Peneltian</th>
+								<th>Judul Penelitian</th>
 								<th>Jurnal Penerbit</th>
 								<th>Tanggal Terbit</th>
 								<th>Sponsor</th>
+
+																
+							</tr>
+							<?php 
+							$no = 1;
+							foreach($penelitian as $pen){ 
+							?>
+							<tr>
+								
+								<td><?php echo $pen->judul_penelitian ?></td>
+								<td><?php echo $pen->jurnal_penerbit ?></td>
+								<td><?php echo $pen->tgl_terbit ?></td>
+								<td><?php echo $pen->sponsor ?></td>
+								
+							</tr>
+							<?php } ?>
+
+						</table>
+
+
+
+						<h3>KELUARGA </h3>
+					
+						
+						<h4> Data Suami/Istri</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Tambah Data Keluarga'); 
+						?>
+
+						<?php echo anchor('home/view_detail_keluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success btn-xs"/>View Detail Keluarga'); 
+						?>
+
+						<table class="table table-striped">
+							<tr>
+								
+								<th>Suami/Istri</th>
+								<th>Tempat Lahir</th>
+								<th>Tgl Lahir</th>
+								<th>Pekerjaan</th>
+
+																
+							</tr>
+							<?php 
+							$no = 1;
+							foreach($istri as $istri){ 
+							?>
+							<tr>
+								
+								<td><?php echo $istri->nama_istri ?></td>
+								<td><?php echo $istri->tempat ?></td>
+								<td><?php echo $istri->tgl_lahir ?></td>
+								<td><?php echo $istri->pekerjaan_istri ?></td>
+								
+							</tr>
+							<?php } ?>
+
+						</table>
+
+
+						<h4> Data Anak</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
+						?>
+						<table class="table table-striped">
+							<tr>
+								
+								<th>Nama Anak</th>
+								<th>Tempat Lahir</th>
+								<th>Tgl Lahir</th>
+								<th>Jenis Kelamin</th>
 
 																
 							</tr>
@@ -279,11 +289,72 @@
 								<td><?php echo $u->nama_istri ?></td>
 								<td><?php echo $u->jml_anak ?></td>
 								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $u->jml_anak ?></td>
 								
 							</tr>
 							<?php } ?>
 
 						</table>
+
+
+
+
+
+						<h4> Data Orang Tua</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
+						?>
+						<table class="table table-striped">
+							<tr>
+								
+								<th>Nama Orang Tua</th>
+								<th>Jenis Kelamin</th>
+
+																
+							</tr>
+							<?php 
+							$no = 1;
+							foreach($user as $u){ 
+							?>
+							<tr>
+								
+								<td><?php echo $u->nama_istri ?></td>
+								<td><?php echo $u->jml_anak ?></td>
+								
+								
+							</tr>
+							<?php } ?>
+
+						</table>
+
+						
+
+						<h4> Data Saudara Kandung</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
+						?>
+						<table class="table table-striped">
+							<tr>
+								
+								<th>Nama</th>
+								<th>Tgl Lahir</th>
+								<th>Pekerjaan</th>
+								<th>Jenis Kelamin</th>
+
+																
+							</tr>
+							<?php 
+							$no = 1;
+							foreach($user as $u){ 
+							?>
+							<tr>
+								
+								<td><?php echo $u->nama_istri ?></td>
+								<td><?php echo $u->jml_anak ?></td>
+								<td><?php echo $u->alamat ?></td>
+								<td><?php echo $u->jml_anak ?></td>
+								
+							</tr>
+							<?php } ?>
+
+						</table>
+
 
 
                     </div>

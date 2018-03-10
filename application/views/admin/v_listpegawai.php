@@ -55,7 +55,7 @@
 	<table class="table table-bordered " id="example">
   <thead class="blue-grey lighten-4">
 		<tr >
-			<th>No</th>
+			
 			<th>NIP</th>
 			<th>Nama</th>
 			<th>Jabatan</th>
@@ -68,7 +68,7 @@
 		foreach($user as $u){ 
 		?>
 		<tr>
-			<td><?php echo $no++ ?></td>
+			
 			<td><?php echo $u->nip ?></td>
 			<td><?php echo $u->nama_lengkap ?></td>
 			<td><?php echo $u->nama_jabatan ?></td>

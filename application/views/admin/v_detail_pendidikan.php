@@ -84,28 +84,27 @@
                     <div class="form-group col-md-8">
                         
 					<h3>PENDIDIKAN</h3>
-						<?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Kembali'); 
+						<?php echo anchor('home/detaildata/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Kembali'); 
 						?>
 						<table class="table table-striped">
 							<tr>
-								
+								<th>Tingkat</th>
 								<th>Institusi</th>
 								<th>Jurusan</th>
-								<th>Tahun Masuk</th>
 								<th>Tahun Lulus</th>
-
-																
+								<th>No Ijazah</th>					
 							</tr>
 							<?php 
 							$no = 1;
-							foreach($user as $u){ 
+							foreach($pendidikan as $p){ 
 							?>
 							<tr>
 								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								
+								<td><?php echo $p->tingkat ?></td>
+								<td><?php echo $p->nama_perguruan ?></td>
+								<td><?php echo $p->jurusan ?></td>
+								<td><?php echo $p->thn_lulus ?></td>
+								<td><?php echo $p->no_ijazah ?></td>
 							</tr>
 							<?php } ?>
 

@@ -45,13 +45,106 @@
 
 				<div class="input-group">
 			    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			    	<input id="nip" type="text" class="form-control" name="nip" placeholder="nip"/>
+			    	<input id="nip" type="text" class="form-control" name="nip" placeholder="NIP"/>
 			  	</div>
+			  	
 			  	<div class="input-group">
 			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
 			    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap"/>
 			    </div>
 
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <input id="nama_jabatan" type="text" class="form-control" name="nama_jabatan" placeholder="Jabatan"/>
+			    </div>
+
+			    <div class="input-group">
+				    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+
+				    <select  id="golongan_pangkat" type="text" class="form-control" name="golongan_pangkat" placeholder="Pangkat Golongan">
+				    		<option>--</option>
+				    		<option>IA</option>
+				    		<option>IB</option>
+				    		<option>IC</option>
+				    		<option>IIA</option>
+				    		<option>IIB</option>
+	    					<option>IIC</option>
+	    					<option>IIIA</option>
+	    					<option>IIIB</option>
+	    					<option>IIIC</option>
+	    					<option>IVA</option>
+	    					<option>IVB</option>
+	    					<option>IVC</option>
+
+				    </select>
+			    </div>
+
+
+
+
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+			    <input id="tempat_lahir_peg" type="text" class="form-control" name="tmpt_lahir" placeholder="Tempat Lahir"/>
+			    </div>
+
+
+
+			    
+			    <div class="input-group"> <!-- Date input -->
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Tangggal Lahir" type="text"/>
+      			</div>
+
+
+
+      			
+
+
+			    <div class="input-group"> <!-- Date input -->
+        		<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="date" name="tmt_jabatan" placeholder="TMT Jabatan" type="text"/>
+      			</div>
+
+
+			    <div class="input-group"> <!-- Date input -->
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<input class="form-control" id="tmt_pensiun" name="tmt_pensiun" placeholder="TMT Pensiun" type="text"/>
+      			</div>
+
+
+      			<div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+			    <input id="email" type="text" class="form-control" name="email" placeholder="Email"/>
+			    </div>
+
+
+
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			    <input id="no_hp" type="text" class="form-control" name="no_hp" placeholder="No HP"/>
+			    </div>
+
+			    <div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+			    <textarea id="alamat" type="text" class="form-control" name="alamat" placeholder="Alamat"></textarea>
+			    </div>
+
+
+
+
+			    </br>
+      			<div class="input-group">
+			    	<span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+			    <input id="image" type="file" class="form-control" name="image"/>
+			    </div>
+
+<!--
+
+
+
+
+				
+			   
 			    <div class="input-group">
 				    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
 
@@ -69,23 +162,12 @@
 
 
 
-			    <div class="input-group">
-				    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-
-				    <select  id="golongan_pangkat" type="text" class="form-control" name="golongan_pangkat" placeholder="Pangkat Golongan">
-				    	
-				    		<option>IIB</option>
-	    					<option>IIC</option>
-	    					<option>IIIB</option>
-	    					<option>IIIC</option>
-
-				    </select>
-			    </div>
+			    
 
 
-
+<!--========================================================================================================
 			    <div class="input-group"> <!-- Date input -->
-        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        			<!--<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         			<input class="form-control" id="date" name="tmt_pangkat" placeholder="TMT Pangkat" type="text"/>
       			</div>
 
@@ -97,7 +179,7 @@
 
 
 			    <div class="input-group"> <!-- Date input -->
-        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        		<!--	<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         			<input class="form-control" id="date" name="tmt_jabatan" placeholder="TMT Jabatan" type="text"/>
       			</div>
 
@@ -119,24 +201,13 @@
 			    </div>
 
 
-			    <div class="input-group"> <!-- Date input -->
-        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        			<input class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Tangggal Lahir" type="text"/>
-      			</div>
+			    
 
 
-			    <div class="input-group"> <!-- Date input -->
-        			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        			<input class="form-control" id="tmt_pensiun" name="tmt_pensiun" placeholder="TMT Pensiun" type="text"/>
-      			</div>
+			    
 
 
-      			</br>
-      			<div class="input-group">
-			    	<span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
-			    <input id="image" type="file" class="form-control" name="image"/>
-			    </div>
-			   
+      			
 
 
 
