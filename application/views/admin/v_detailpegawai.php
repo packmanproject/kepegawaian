@@ -28,8 +28,8 @@
 	      <a class="navbar-brand" href="#">UIN IMAM BONJOL</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#"></a></li>
+	     <li class="active"><a href="<?php echo base_url().'home/';?>">Home</a></li>
+	      <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>
 	      <li><a href="#"></a></li>
 	      <li><a href="#"></a></li>
 	    </ul>
@@ -71,7 +71,7 @@
 
                     <br>
                     <!--<a href="#" class="btn btn-success">Update Info</a>-->
-                    <?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-success"/>Update Data'); 
+                    <?php echo anchor('home/editdata/'.$u->nip,'<i class=""></i><span class="btn btn-success"/>Update Data'); 
 					?>
                     <br /><br/>
 
@@ -259,7 +259,7 @@
 								
 								<td><?php echo $istri->nama_istri ?></td>
 								<td><?php echo $istri->tempat ?></td>
-								<td><?php echo $istri->tgl_lahir ?></td>
+								<td><?php echo $istri->tgl_lahir_istri ?></td>
 								<td><?php echo $istri->pekerjaan_istri ?></td>
 								
 							</tr>
@@ -268,93 +268,7 @@
 						</table>
 
 
-						<h4> Data Anak</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
-						?>
-						<table class="table table-striped">
-							<tr>
-								
-								<th>Nama Anak</th>
-								<th>Tempat Lahir</th>
-								<th>Tgl Lahir</th>
-								<th>Jenis Kelamin</th>
-
-																
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
-
-
-
-
-						<h4> Data Orang Tua</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
-						?>
-						<table class="table table-striped">
-							<tr>
-								
-								<th>Nama Orang Tua</th>
-								<th>Jenis Kelamin</th>
-
-																
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
 						
-
-						<h4> Data Saudara Kandung</h4><?php echo anchor('home/tambahdatakeluarga/'.$u->nip,'<i class=""></i><span class="btn btn-info btn-xs"/>Update Data Keluarga'); 
-						?>
-						<table class="table table-striped">
-							<tr>
-								
-								<th>Nama</th>
-								<th>Tgl Lahir</th>
-								<th>Pekerjaan</th>
-								<th>Jenis Kelamin</th>
-
-																
-							</tr>
-							<?php 
-							$no = 1;
-							foreach($user as $u){ 
-							?>
-							<tr>
-								
-								<td><?php echo $u->nama_istri ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								<td><?php echo $u->alamat ?></td>
-								<td><?php echo $u->jml_anak ?></td>
-								
-							</tr>
-							<?php } ?>
-
-						</table>
-
 
 
                     </div>

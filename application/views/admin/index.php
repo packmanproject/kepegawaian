@@ -7,8 +7,9 @@
     <title>AZZURA Media | Admin</title>
 </head>
 <body>
-
-<h1>Haii selamat datang, anda login sebagai <?php echo $username; ?></h1> <a href="<?php echo site_url('admin/c_admin/logout'); ?>">Logout</a>
+<h2>Hai, <?php echo $this->session->userdata("nama"); ?></h2>
+<h1>
+Haii selamat datang, anda login sebagai <?php echo $username; ?></h1> <a href="<?php echo site_url('admin/c_admin/logout'); ?>">Logout</a>
 
 </body>
 </html>

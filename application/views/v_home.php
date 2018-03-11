@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Hubungi Kami</a></li>
-            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -34,10 +34,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <!-- INI ADALAH TAMPILAN MENU UTAMA -->
     <div class="container">
       <div class="jumbotron">
-        <h1>Selamat Datang</h1><br>
+        <h1><h2>Hai, <?php echo $this->session->userdata("username"); ?></h2></h1><br>
         <p>Silahkan memasukkan data pegawai dengan benar. Selamat Bekerja</p>
         <br><p>
-          <a class="btn btn-lg btn-primary" href=<?php echo base_url(); ?>home/viewdata role="button">Masuk &raquo;</a>
+          <a class="btn btn-lg btn-primary" href=<?php echo base_url(); ?>home/viewdata role="button">Lanjut &raquo;</a>
         </p>
       </div>
 

@@ -29,8 +29,8 @@
       <a class="navbar-brand" href="#">UIN IMAM BONJOL</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#"></a></li>
+      <li class="active"><a href="<?php echo base_url().'home/';?>">Home</a></li>
+	      <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
     </ul>
@@ -71,7 +71,7 @@
 
 			<tr>
 				<td>Pekerjaan</td>
-				<td><input name="pekerjaan" value="" ></td>
+				<td><input name="pekerjaan_istri" value="" ></td>
 			</tr>
 			<tr>
 				<td>Alamat</td>
